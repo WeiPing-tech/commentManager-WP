@@ -1,0 +1,13 @@
+.container {
+    display:flex;
+}
+
+.children {
+    border: 50x solid black;
+    background-color: aliceblue;
+}
+
+.comments {
+    width: auto;
+    height: 100px;
+}
