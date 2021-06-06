@@ -42,15 +42,9 @@ export class PostsComponent implements OnInit {
     )
   }
 
-  searchName(searchValue: any) {
+  searchComments(searchValue: any) {
     this.filteredComments = this.comments.filter((item => {
-      return item.name.toLowerCase().includes(searchValue.toLowerCase());
-    }));
-  }
-
-  searchComment(searchValue: any) {
-    this.filteredComments = this.comments.filter((item => {
-      return item.body.toLowerCase().includes(searchValue.toLowerCase());
+      return item.name.toLowerCase().includes(searchValue.toLowerCase()) || item.body.toLowerCase().includes(searchValue.toLowerCase());
     }));
   }
 }
