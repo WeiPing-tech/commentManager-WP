@@ -4,16 +4,19 @@
         <mat-card-content>{{ body }}</mat-card-content>
     </mat-card>
     <div fxLayout="row">
-        <mat-card class="children" fxFlex="25%">
+        <mat-card class="children box" fxFlex="25%">
             <mat-card-title>Search Box</mat-card-title>
             <mat-card-content>
                 <mat-form-field>
-                    <input matInput>
+                    Search by Name: <input matInput (keyup)="searchName($event.target.value)">
+                </mat-form-field>
+                <mat-form-field>
+                    Search by Comments: <input matInput (keyup)="searchComment($event.target.value)">
                 </mat-form-field>
             </mat-card-content>
         </mat-card>
         <div class="container" fxLayout="column" fxFlex="75%" fxLayoutGap="15px">
-            <mat-card class="comments" *ngFor="let item of comments">
+            <mat-card class="comments" *ngFor="let item of filteredComments">
                 <mat-card-title>{{ item.name }}</mat-card-title>
                 <mat-card-content>{{ item.body }}</mat-card-content>
             </mat-card>

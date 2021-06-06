@@ -17,6 +17,7 @@ export class PostsComponent implements OnInit {
   name: string[] = [];
   email: string[] = [];
   commentBody: string[] = [];
+  filteredComments: any;
 
 
   constructor(private data: DataRetrieverService, private route: ActivatedRoute) { 
@@ -36,7 +37,20 @@ export class PostsComponent implements OnInit {
       data =>
       {
         this.comments = data;
+        this.filteredComments = this.comments;
       }
     )
+  }
+
+  searchName(searchValue: any) {
+    this.filteredComments = this.comments.filter((item => {
+      return item.name.toLowerCase().includes(searchValue.toLowerCase());
+    }));
+  }
+
+  searchComment(searchValue: any) {
+    this.filteredComments = this.comments.filter((item => {
+      return item.body.toLowerCase().includes(searchValue.toLowerCase());
+    }));
   }
 }
