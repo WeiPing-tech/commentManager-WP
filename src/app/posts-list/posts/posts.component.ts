@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DataRetrieverService } from '../../data-retriever.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { DataRetrieverService } from '../../data-retriever.service';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
+
 export class PostsComponent implements OnInit {
 
   title: string;
